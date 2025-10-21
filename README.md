@@ -12,7 +12,7 @@ Please implement the following:
 
 1. Use a component library to make the UI and UX more appealing and user friendly.
 
-[Explain here why you chose the one you did]
+Answer: I have chosed shadcn/ui because it's fast to overwrite and build UI and very customizable and its based on Tailwind CSS
 
 2. Implement dark mode that includes a switcher to go back to light mode.
 

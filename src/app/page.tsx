@@ -8,6 +8,7 @@ import BookForm from "@/components/BookForm";
 import { Book } from "@/types/book";
 import { Button } from "@/components/ui/button"
 import DeleteConfirmDialog from "@/components/DeleteConfirmDialog";
+import { ThemeSwitch } from "@/components/ThemeSwitch";
 
 export default function Page() {
   const [books, setBooks] = useState<Book[]>(data as Book[]);
@@ -54,6 +55,8 @@ export default function Page() {
     <main className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Book Gallery</h1>
+        <div className="flex items-center gap-4">
+        <ThemeSwitch />
         <Button
           onClick={() => {
             setSelectedBook(undefined);
@@ -62,6 +65,8 @@ export default function Page() {
         >
           Add New Book
         </Button>
+        </div>
+   
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

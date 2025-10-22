@@ -2,18 +2,20 @@ import Image from "next/image";
 import { Book } from "@/types/book";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { StarRating } from "./StartRating";
 
 interface BookCardProps {
   book: Book;
   onEdit: (book: Book) => void;
   onDelete: (id: number) => void;
+  handleUpdateRating: (bookId: number, newRating: number) => void;
 }
 
-export default function BookCard({ book, onEdit, onDelete }: BookCardProps) {
+export default function BookCard({ book, onEdit, onDelete, handleUpdateRating }: BookCardProps) {
   return (
     <Card className="overflow-hidden pt-0">
       <div className="relative h-[300px] w-full">
-        <Image
+           <Image
           src={book.coverImage}
           alt={`Cover of ${book.title}`}
           fill
@@ -21,6 +23,11 @@ export default function BookCard({ book, onEdit, onDelete }: BookCardProps) {
         />
       </div>
       <CardContent className="p-4">
+         <StarRating
+           handleUpdateRating={handleUpdateRating}
+           book={book}
+         />
+        <div className="pl-2">
         <h3 className="text-lg font-semibold">{book.title}</h3>
         <p className="text-gray-600">{book.author}</p>
         <p className="text-green-600 font-semibold mb-2">
@@ -43,6 +50,7 @@ export default function BookCard({ book, onEdit, onDelete }: BookCardProps) {
             Delete
           </Button>
         </CardFooter>
+        </div>
       </CardContent>
     </Card>
   );

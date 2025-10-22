@@ -35,7 +35,7 @@ export default function Page() {
     setSelectedBook(undefined);
   };
 
-  const handleDeleteBook = (id: number) => {
+    const handleDeleteBook = (id: number) => {
        setDeleteId(id);
   };
 
@@ -46,9 +46,17 @@ export default function Page() {
     }
   };
 
-  const handleEdit = (book: Book) => {
+    const handleEdit = (book: Book) => {
     setSelectedBook(book);
     setIsModalOpen(true);
+  };
+
+   const handleUpdateRating = (bookId: number, newRating: number) => {
+    setBooks(
+      books.map((book) =>
+        book.id === bookId ? { ...book, rating: newRating } : book
+      )
+    );
   };
 
   return (
@@ -68,7 +76,7 @@ export default function Page() {
         </div>
    
       </div>
-
+      
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {books.map((book) => (
           <BookCard
@@ -76,6 +84,7 @@ export default function Page() {
             book={book}
             onEdit={handleEdit}
             onDelete={handleDeleteBook}
+            handleUpdateRating={handleUpdateRating}
           />
         ))}
       </div>

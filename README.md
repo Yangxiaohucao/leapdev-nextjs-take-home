@@ -15,6 +15,7 @@ Please implement the following:
 Answer:I have chose shadcn/ui because it's fast to overwrite and build UI and very customizable and its based on Tailwind CSS
 
 2. Implement dark mode that includes a switcher to go back to light mode.
+I have used next-themes for the theme provider
 
 3. Deleting a book displays a JavaScript alert. Replace this with modern UX.
 I have replaced javascript with alert diglog using shadcn/ui 
